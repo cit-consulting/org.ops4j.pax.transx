@@ -524,6 +524,14 @@
         
         <plugins>
             <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <extensions>false</extensions>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
                 <extensions>true</extensions>
@@ -578,6 +586,17 @@
             </snapshots>
         </repository>
     </repositories>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>citc.snapshots</id>
+            <url>https://maven1.citc.ru/content/repositories/citc-snapshot</url>
+        </snapshotRepository>
+        <repository>
+            <id>citc.opensource</id>
+            <url>https://maven1.citc.ru/content/repositories/citc-opensource</url>
+        </repository>
+    </distributionManagement>
 
     <profiles>
         <!-- Checkstyle: `mvn -Pcs validate` -->
